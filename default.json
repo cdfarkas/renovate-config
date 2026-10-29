@@ -8,23 +8,31 @@
   "labels": ["dependencies"],
   "dependencyDashboard": true,
   "platformAutomerge": true,
+  "internalChecksFilter": "strict",
   "packageRules": [
     {
-      "description": "Automerge safe updates (checks must pass if any)",
+      "description": "Patch/pin/digest: wait 24h after release, then automerge",
       "matchUpdateTypes": ["patch", "pin", "digest"],
-      "groupName": "safe updates",
-      "automerge": true
+      "minimumReleaseAge": "1 day",
+      "automerge": true,
+      "groupName": "safe updates"
     },
     {
-      "description": "GitHub Actions bumped together and automerged",
-      "matchManagers": ["github-actions"],
-      "groupName": "github-actions",
-      "automerge": true
-    },
-    {
-      "description": "Minor updates grouped, merged by hand",
+      "description": "Minor: create and automerge",
       "matchUpdateTypes": ["minor"],
+      "automerge": true,
       "groupName": "minor updates"
+    },
+    {
+      "description": "Major: dashboard only, PR created only after approval there",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "GitHub Actions grouped and automerged",
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "groupName": "github-actions"
     },
     {
       "description": "Keep @types bumps with their source package group",
