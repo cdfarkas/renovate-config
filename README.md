@@ -19,6 +19,7 @@ Add a `renovate.json` to the target repository:
 
 - Weekly run (Monday night, Europe/Paris) to keep the noise down.
 - Groups updates and caps open PRs (5 concurrent, 2/hour).
+- Every update waits 1 day after its release before Renovate opens it, matching pnpm's default `minimumReleaseAge`.
 - Automerges patch, pin, digest and GitHub Actions updates.
 - Minor updates are grouped into one PR you merge by hand; major updates stay individual.
 - A dependency dashboard issue tracks everything pending.
