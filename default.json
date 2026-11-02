@@ -9,11 +9,11 @@
   "dependencyDashboard": true,
   "platformAutomerge": true,
   "internalChecksFilter": "strict",
+  "minimumReleaseAge": "1 day",
   "packageRules": [
     {
-      "description": "Patch/pin/digest: wait 24h after release, then automerge",
+      "description": "Patch/pin/digest: automerge",
       "matchUpdateTypes": ["patch", "pin", "digest"],
-      "minimumReleaseAge": "1 day",
       "automerge": true,
       "groupName": "safe updates"
     },
